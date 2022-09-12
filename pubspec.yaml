@@ -21,24 +21,48 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  animated_splash_screen: ^1.0.1+2
+  better_player: ^0.0.72
+  carousel_slider: ^3.0.0
+  cupertino_icons: ^1.0.2
+  dio: ^4.0.0
+  easy_localization: ^3.0.0
+  expansion_tile_card: ^2.0.0
+  file_picker: ^3.0.3
   flutter:
     sdk: flutter
-  hexcolor: ^2.0.3
-  google_fonts: ^2.0.0
+  flutter_local_notifications: ^6.0.0
+  flutter_screenutil: ^5.0.0+2
+  fluttertoast: ^8.0.7
   font_awesome_flutter: ^9.0.0
-  carousel_slider: ^3.0.0
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  google_fonts: ^2.0.0
+  hexcolor: 
+  http: ^0.13.3
+  image_gallery_saver: 
+  image_picker: 
+  page_transition: ^1.1.7+6
+  path: ^1.8.0
+  path_provider: ^2.0.2
+  permission: 
+  permission_handler: 
+  provider: ^5.0.0
+  screen: 
+  share: ^2.0.4
+  shared_preferences: ^2.0.6
+  theme_provider: ^0.5.0
 
 dev_dependencies:
+  flutter_launcher_icons: "0.9.0"
+  flutter_native_splash: ^1.1.8+4
   flutter_test:
     sdk: flutter
-  flutter_native_splash: ^1.1.8+4
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/cut.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
 
@@ -51,13 +75,10 @@ flutter:
   assets:
     - assets/images/
   #   - images/a_dot_ham.jpeg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
@@ -67,6 +88,18 @@ flutter:
     - family: Graphique
       fonts:
         - asset: assets/fonts/Graphique-W01-Regular.ttf
+    - family: Taj
+      fonts:
+        - asset: assets/fonts/Tajawal-Regular.ttf
+    - family: Bebu
+      fonts:
+        - asset: assets/fonts/BebasNeue-Regular.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
+    - family: Sans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
   #         style: italic
   #   - family: Trajan Pro
   #     fonts:

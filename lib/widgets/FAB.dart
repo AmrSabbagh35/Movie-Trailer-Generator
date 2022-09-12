@@ -1,77 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:hexcolor/hexcolor.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:video_ui/screens/Confirmation.dart';
+import 'package:video_ui/translations/local_keys.g.dart';
+import 'package:video_ui/widgets/Stream_dialog.dart';
+import 'dart:io';
 
-class FAB_Widget extends StatefulWidget {
+class FABWidget extends StatefulWidget {
   @override
-  _FAB_WidgetState createState() => _FAB_WidgetState();
+  _FABWidgetState createState() => _FABWidgetState();
 }
 
-class _FAB_WidgetState extends State<FAB_Widget> {
-  TextEditingController _linkController;
+class _FABWidgetState extends State<FABWidget> {
+  File file;
+  // Future<void> getVideo() async {
+  //   final video = await ImagePicker().getVideo(source: ImageSource.gallery);
+  //   if (video == null)
+  //     Container();
+  //   else
+  //     setState(() {
+  //       file = File(video.path);
+  //       Navigator.of(context).pushReplacement(
+  //           MaterialPageRoute(builder: (context) => ConfirmationScreen()));
+  //     });
+  // }
 
   Future<void> _displayTextInputDialog(BuildContext context) async {
     return showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  'Enter Your Movie\'s URL',
-                  style: TextStyle(color: Colors.white),
-                ),
-                Icon(
-                  Icons.link,
-                  color: Colors.white,
-                )
-              ],
-            ),
-            backgroundColor: Color.fromRGBO(32, 32, 32, 1),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadiusDirectional.circular(20)),
-            content: TextField(
-              style: TextStyle(color: Colors.white),
-              onChanged: (value) {
-                setState(() {});
-              },
-              controller: _linkController,
-              decoration: InputDecoration(
-                hintText: "movie link",
-                hintStyle: TextStyle(color: Colors.grey),
-              ),
-            ),
-            actions: <Widget>[
-              FlatButton(
-                color: Colors.black26,
-                textColor: Colors.white,
-                child: Text('Cancel'),
-                onPressed: () {
-                  setState(() {
-                    Navigator.pop(context);
-                  });
-                },
-              ),
-              FlatButton(
-                color: Colors.black38,
-                textColor: Colors.white,
-                child: Text('OK'),
-                onPressed: () {
-                  setState(() {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => Confirmation_Screen()));
-                  });
-                },
-              ),
-            ],
-          );
+          return StreamDialog();
         });
   }
 
   @override
   Widget build(BuildContext context) {
+    var lang = Localizations.localeOf(context).languageCode;
     return FloatingActionButton(
       onPressed: () => showModalBottomSheet(
           elevation: 4,
@@ -86,7 +50,6 @@ class _FAB_WidgetState extends State<FAB_Widget> {
             return SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                // mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(
                     height: 20,
@@ -99,7 +62,7 @@ class _FAB_WidgetState extends State<FAB_Widget> {
                         Padding(
                           padding: const EdgeInsets.all(20),
                           child: Text(
-                            'Choose a Process',
+                            LocaleKeys.chooseText.tr(),
                             style: TextStyle(
                                 fontSize: 30,
                                 fontWeight: FontWeight.bold,
@@ -121,10 +84,18 @@ class _FAB_WidgetState extends State<FAB_Widget> {
                           color: Colors.white,
                         )),
                     title: Text(
-                      'Upload a Movie',
-                      style: TextStyle(color: Colors.white),
+                      LocaleKeys.uploadtext.tr(),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: lang == 'en' ? 23 : 20),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      // getVideo();
+                      file == null
+                          ? Navigator.pop(context)
+                          : Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ConfirmationScreen()));
+                    },
                   ),
                   ListTile(
                     leading: CircleAvatar(
@@ -135,8 +106,10 @@ class _FAB_WidgetState extends State<FAB_Widget> {
                       ),
                     ),
                     title: Text(
-                      'Stream a URL',
-                      style: TextStyle(color: Colors.white),
+                      LocaleKeys.streamText.tr(),
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: lang == 'en' ? 23 : 20),
                     ),
                     onTap: () {
                       _displayTextInputDialog(context);

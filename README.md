@@ -1,6 +1,6 @@
-# video_ui
+# Movie Trailer Generator
 
-A new Flutter project.
+My Junior Project.
 
 ## Getting Started
 

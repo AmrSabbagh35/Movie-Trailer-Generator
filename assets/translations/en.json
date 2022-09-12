@@ -1,0 +1,46 @@
+{
+  "welcome_text": "Make Your Own Movie Trailer",
+  "uploadtext": "Upload a Movie",
+  "streamText": "Stream a URL",
+  "chooseText": "Choose a Process",
+  "dialog": {
+    "enterText": "Enter Your Movie's URL",
+    "hintText": "enter URL here",
+    "okText": "OK",
+    "Cancel": "Cancel",
+    "validationText": "Please enter a URL"
+  },
+  "drawer": {
+    "themeText": "Theme",
+    "langText": "Language",
+    "aboutText": "About us",
+    "reportText": "Report a Problem"
+  },
+  "suggestedtext": "Suggested Movies",
+  "confirmation": {
+    "selected_text": "Your Movie was Selected Successfully ! 🎉",
+    "subsuploadtext": "Please upload English Subtitles for your Movie as an SRT file :",
+    "nofiletext": "No File is Selected",
+    "descText": "- We have found your desired Movie and now The app will start to analyze it and do the Trick✨",
+    "betterText": "For a Better Result :",
+    "FastnetText": "Fast Internet Connection.",
+    "subText": "Synchronized movie subtitles.",
+    "ProcessText": "Process might take 15 - 20 minutes ⌛",
+    "startText": "Start"
+  },
+  "plottext": "Plot Summary",
+  "plots": {
+    "batmanPlot": "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+    "takenPlot": "A retired CIA agent travels across Europe and relies on his old skills to save his estranged daughter, who has been kidnapped while on a trip to Paris.",
+    "fastPlot": "Los Angeles police officer Brian O'Conner must decide where his loyalty really lies when he becomes enamored with the street racing world he has been sent undercover to destroy.",
+    "hacksawPlot": "World War II American Army Medic Desmond T. Doss, who served during the Battle of Okinawa, refuses to kill people and becomes the first man in American history to receive the Medal of Honor without firing a shot."
+  },
+  "displayText": {
+    "doneText": "Your trailer was generated !",
+    "saveText": "Save to Gallery",
+    "shareText": "Share Trailer",
+    "deleteText": "Delete Trailer",
+    "AnotherText": "Try Another Movie !",
+    "deleteDialog": "Are you sure you want to delete the trailer ?"
+  }
+}

@@ -1,25 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:video_ui/assets.dart';
+import 'package:video_ui/translations/local_keys.g.dart';
 
 class TitleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var lang = Localizations.localeOf(context).languageCode;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       child: Container(
-        width: MediaQuery.of(context).size.width,
-        height: 100,
+        width: ScreenUtil.defaultSize.width * 2,
+        height: ScreenUtil.defaultSize.height * 0.2,
         child: Row(
           children: [
-            Text(
-              'Make Your Own \n Movie Trailer !',
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 40,
-                color: Colors.white,
-                // fontFamily: 'Graphique-W01-Regular'
+            Container(
+              width: 250,
+              child: Text(
+                LocaleKeys.welcome_text.tr(),
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: lang == 'ar' ? 25 : 45,
+                  color: Colors.white,
+                  // fontFamily: 'Graphique-W01-Regular'
+                ),
               ),
             ),
+            lang == 'en'
+                ? SizedBox(
+                    width: 10,
+                  )
+                : SizedBox(),
             VerticalDivider(
               color: Colors.white,
               thickness: 2,
@@ -27,16 +39,20 @@ class TitleWidget extends StatelessWidget {
               indent: 10,
               width: 20,
             ),
-            SizedBox(
-              width: 7,
-            ),
+            lang == 'en'
+                ? SizedBox(
+                    width: 10,
+                  )
+                : SizedBox(
+                    width: 10,
+                  ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Container(
-                height: 80,
-                width: 50,
+                height: lang == 'en' ? 100 : 80,
+                width: ScreenUtil.defaultSize.width * 0.2,
                 child: Image.asset(
-                  'assets/images/image.png',
+                  Assets.logo,
                   fit: BoxFit.contain,
                 ),
               ),

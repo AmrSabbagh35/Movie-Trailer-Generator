@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:video_ui/data/data.dart';
-import 'package:video_ui/widgets/FAB.dart';
-import 'package:video_ui/widgets/Carousel.dart';
-import 'package:video_ui/widgets/MainDrawer.dart';
-import 'package:video_ui/widgets/Title.dart';
-import 'package:video_ui/widgets/genres.dart';
+import 'package:video_ui/translations/local_keys.g.dart';
+import 'package:video_ui/widgets/widget.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Homescreen extends StatefulWidget {
   @override
@@ -21,7 +20,7 @@ class _HomescreenState extends State<Homescreen> {
         key: _drawerKey,
         drawer: MainDrawer(),
         drawerEnableOpenDragGesture: false,
-        floatingActionButton: FAB_Widget(),
+        floatingActionButton: FABWidget(),
         backgroundColor: HexColor("#121212"),
         appBar: AppBar(
           elevation: 20,
@@ -50,12 +49,25 @@ class _HomescreenState extends State<Homescreen> {
               SizedBox(
                 height: 5,
               ),
-              Custom_Carousel(),
+              CustomCarousel(),
               SizedBox(
                 height: 10,
               ),
+              Center(
+                child: Container(
+                  width: ScreenUtil.defaultSize.width * 0.9,
+                  child: Divider(
+                    // thickness: 1,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
 
-              Genres(title: 'Genres', genreimage: previews),
+              Examples(
+                title: LocaleKeys.suggestedtext.tr(),
+                exampleimage: previews,
+                examplemovie: movies,
+              ),
             ],
           ),
         ),
